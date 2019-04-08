@@ -53,6 +53,8 @@ class OnePica_AvaTax_Model_Service_Avatax_Config extends OnePica_AvaTax_Model_Se
      */
     public function init($storeId)
     {
+        Mage::getSingleton('avatax/observer_loadAvaTaxExternalLib')->loadAvaTaxExternalLib();
+        
         if (null === $this->_config) {
             $cfgValues = array(
                 'url'     => Mage::helper('avatax/config')->getServiceUrl($storeId),
